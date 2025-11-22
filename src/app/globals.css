@@ -1,0 +1,294 @@
+/* Updated: 2025-11-21T06:18:28.736Z */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Shadcn/UI colors - Dark Theme */
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+
+  --color-card: rgba(0, 0, 0, 0.4);
+  --color-card-foreground: #ffffff;
+
+  --color-popover: rgba(0, 0, 0, 0.8);
+  --color-popover-foreground: #ffffff;
+
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+
+  --color-secondary: rgba(0, 0, 0, 0.4);
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: rgba(255, 255, 255, 0.5);
+  --color-muted-foreground: rgba(255, 255, 255, 0.7);
+
+  --color-accent: rgba(0, 0, 0, 0.4);
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #F97316;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.1);
+  --color-ring: #22C55E;
+
+  --color-chart-1: #22C55E;
+  --color-chart-2: #06B6D4;
+  --color-chart-3: #3B82F6;
+  --color-chart-4: #F97316;
+  --color-chart-5: #ffffff;
+
+  --color-sidebar: rgba(0, 0, 0, 0.8);
+  --color-sidebar-foreground: #ffffff;
+  --color-sidebar-primary: #22C55E;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: rgba(0, 0, 0, 0.4);
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-border: rgba(255, 255, 255, 0.1);
+  --color-sidebar-ring: #22C55E;
+
+  --radius-lg: 0.75rem;
+  --radius-md: calc(0.75rem - 2px);
+  --radius-sm: calc(0.75rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Custom Design System Colors */
+  --color-background-secondary: rgba(0, 0, 0, 0.4);
+  --color-background-accent: rgba(0, 0, 0, 0.8);
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+
+  --color-accent-green: #22C55E;
+  --color-accent-green-glow: rgba(34, 197, 94, 0.5);
+  --color-accent-green-subtle: rgba(34, 197, 94, 0.2);
+  --color-accent-green-very-subtle: rgba(34, 197, 94, 0.05);
+
+  --color-accent-cyan: #06B6D4;
+  --color-accent-cyan-glow: rgba(6, 182, 212, 0.5);
+  --color-accent-cyan-subtle: rgba(6, 182, 212, 0.2);
+  --color-accent-cyan-very-subtle: rgba(6, 182, 212, 0.1);
+
+  --color-accent-blue: #3B82F6;
+  --color-accent-blue-glow: rgba(59, 130, 246, 0.1);
+
+  --color-warning-orange: #F97316;
+  --color-warning-orange-subtle: rgba(249, 115, 22, 0.2);
+  --color-warning-orange-background: rgba(249, 115, 22, 0.05);
+
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.25);
+  --color-border-accent: rgba(255, 255, 255, 0.2);
+
+  /* Custom Design System Fonts */
+  --font-display: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+/*
+  The default border color has changed to currentColor in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: var(--radius-lg);
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 5rem; /* 80px */
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-family: var(--font-display);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .text-body-lg {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .text-body-regular {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .text-body-small {
+    font-size: 0.75rem; /* 12px */
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .text-caption {
+    font-size: 0.625rem; /* 10px */
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .text-mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .text-stats {
+    font-family: var(--font-display);
+    font-size: 3.5rem; /* 56px */
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to bottom, var(--color-text-primary), rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3rem; /* 48px */
+    }
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
