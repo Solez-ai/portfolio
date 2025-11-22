@@ -6,18 +6,19 @@ const AnimatedMarqueeBanner = () => {
   const words = ["BUILD", "SHIP", "SCALE"];
 
   const MarqueeContent = () => (
-    <div className="flex shrink-0 items-center gap-10 text-[12vw] md:text-[8vw] font-black font-display leading-none">
+    <div className="flex shrink-0 items-center gap-8 md:gap-10 text-[10vw] sm:text-[12vw] md:text-[8vw] font-black font-display leading-none">
       {[...words, ...words, ...words].map((word, index) => (
         <span
           key={index}
-          className="group/word relative inline-block cursor-pointer transition-all duration-500"
+          className="group/word relative inline-block cursor-pointer transition-all duration-500 active:scale-105 md:active:scale-100"
           style={{
             perspective: '1000px',
             transformStyle: 'preserve-3d',
+            WebkitTapHighlightColor: 'transparent',
           }}
         >
-          {/* Main text - white by default, purple gradient on hover */}
-          <span className="relative block text-white group-hover/word:text-transparent group-hover/word:bg-clip-text group-hover/word:bg-gradient-to-br group-hover/word:from-purple-400 group-hover/word:via-pink-300 group-hover/word:to-purple-400 transition-all duration-500 group-hover/word:scale-110"
+          {/* Main text - white by default, gradient on hover AND active (tap) */}
+          <span className="relative block text-white group-hover/word:text-transparent group-hover/word:bg-clip-text group-hover/word:bg-gradient-to-br group-hover/word:from-purple-400 group-hover/word:via-pink-300 group-hover/word:to-purple-400 group-active/word:text-transparent group-active/word:bg-clip-text group-active/word:bg-gradient-to-br group-active/word:from-purple-400 group-active/word:via-pink-300 group-active/word:to-purple-400 transition-all duration-500 group-hover/word:scale-110 group-active/word:scale-110"
             style={{
               transform: 'translateZ(0px)',
               transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
@@ -32,15 +33,15 @@ const AnimatedMarqueeBanner = () => {
             {word}
           </span>
 
-          {/* 3D Glow layers - only visible on hover */}
-          <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-br from-purple-500 via-pink-500 to-purple-500 opacity-0 group-hover/word:opacity-100 blur-xl transition-all duration-500 pointer-events-none"
+          {/* 3D Glow layers - visible on hover AND active */}
+          <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-br from-purple-500 via-pink-500 to-purple-500 opacity-0 group-hover/word:opacity-100 group-active/word:opacity-100 blur-xl transition-all duration-500 pointer-events-none"
             aria-hidden="true"
           >
             {word}
           </span>
 
-          {/* Secondary glow */}
-          <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-purple-400 to-pink-400 opacity-0 group-hover/word:opacity-70 blur-2xl transition-all duration-700 pointer-events-none"
+          {/* Secondary glow - hover AND active */}
+          <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-purple-400 to-pink-400 opacity-0 group-hover/word:opacity-70 group-active/word:opacity-70 blur-2xl transition-all duration-700 pointer-events-none"
             aria-hidden="true"
             style={{ transform: 'scale(1.2)' }}
           >

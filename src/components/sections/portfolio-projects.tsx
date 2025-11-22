@@ -71,11 +71,11 @@ const ProjectCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="group relative border border-white/10 bg-[rgba(0,0,0,0.4)] rounded-xl overflow-hidden transition-all duration-300 hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] hover:scale-[1.02]" style={{ transform: 'perspective(1000px) rotateX(0deg)', transformStyle: 'preserve-3d' }}>
+    <div className="group relative border border-white/10 bg-[rgba(0,0,0,0.4)] rounded-xl overflow-hidden transition-all duration-300 hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] hover:scale-[1.02] active:scale-[1.01] active:border-green-500/20 md:active:scale-100" style={{ transform: 'perspective(1000px) rotateX(0deg)', transformStyle: 'preserve-3d', WebkitTapHighlightColor: 'transparent' }}>
       <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 bg-[linear-gradient(135deg,transparent,rgba(34,197,94,0.3),transparent)]"></div>
       <div className="relative h-full p-6 flex flex-col z-10">
         <div className="flex items-start justify-between mb-4">
-          <div className="p-3 rounded-lg bg-white/5 text-white group-hover:text-green-400 transition-colors group-hover:scale-110 duration-300">
+          <div className="p-3 rounded-lg bg-white/5 text-white group-hover:text-green-400 group-active:text-green-400 transition-colors group-hover:scale-110 group-active:scale-110 duration-300">
             <Icon className="w-6 h-6" />
           </div>
           <span className="text-xs font-mono text-muted-foreground border border-white/10 px-2 py-1 rounded bg-black/50">

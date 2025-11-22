@@ -96,7 +96,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-background px-4 pb-10 pt-20 selection:bg-cyan-500/30 md:px-6">
+    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-background px-4 pb-10 pt-16 md:pt-20 selection:bg-cyan-500/30 md:px-6">
       <div className="absolute inset-0 z-0 bg-black"></div>
       <canvas
         ref={canvasRef}
@@ -112,7 +112,7 @@ export default function HeroSection() {
         }}
       ></div>
 
-      <div className="relative z-10 grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
+      <div className="relative z-10 grid w-full max-w-7xl grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-24">
         <div className="relative z-20 flex h-full flex-col justify-center space-y-10 py-10 text-center lg:text-left">
           <div className="flex items-center justify-center gap-3 lg:justify-start">
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 backdrop-blur-md">
@@ -123,7 +123,7 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="space-y-6">
-            <h1 className="font-display text-5xl font-bold leading-[0.9] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="font-display text-4xl font-bold leading-[0.9] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               <span className="block font-mono">Web Developer</span>
               <span className="-mb-4 block bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text pb-4 pr-2 text-transparent">
                 <span className="block text-sm md:text-base lg:text-lg font-sans tracking-normal">Full Stack + Vibe Coder</span>
@@ -202,11 +202,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative hidden h-[600px] items-center justify-center lg:flex">
+        <div className="relative flex h-auto md:h-[500px] lg:h-[600px] items-center justify-center mt-8 lg:mt-0">
           <div className="absolute bottom-0 left-1/2 h-[100px] w-[300px] -translate-x-1/2 rounded-[100%] bg-cyan-500/5 blur-2xl"></div>
           <div className="absolute bottom-20 left-1/2 h-px w-[200px] -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent shadow-[0_0_20px_rgba(6,182,212,0.8)]"></div>
           <div className="absolute bottom-20 left-1/2 h-[400px] w-[200px] -translate-x-1/2 bg-gradient-to-t from-cyan-500/10 to-transparent opacity-50"></div>
-          <div className="relative w-full max-w-[380px] group/card">
+          <div className="relative w-full max-w-[340px] sm:max-w-[380px] group/card">
             <div className="relative overflow-hidden rounded-2xl border border-cyan-500/20 bg-black/40 backdrop-blur-xl shadow-[0_0_50px_rgba(6,182,212,0.1)] transition-all duration-500 group-hover/card:shadow-[0_0_80px_rgba(6,182,212,0.2)] group-hover/card:scale-[1.02]" style={{ transform: 'perspective(1000px) rotateY(0deg)', transformStyle: 'preserve-3d' }}>
               <div className="pointer-events-none absolute inset-0 opacity-10" style={{ backgroundImage: "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c3d501c7-7f70-468c-819f-358ed29ca72e-gaurav-mahto-replit-app/assets/images/noise-1.svg')" }}></div>
               <div className="pointer-events-none absolute inset-0 h-[200%] w-full animate-scan bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent"></div>
