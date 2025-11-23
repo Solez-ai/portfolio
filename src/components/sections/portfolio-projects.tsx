@@ -6,6 +6,7 @@ import {
   ExternalLink,
   Github,
   Sparkles,
+  MessageSquare,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -56,6 +57,26 @@ const projects: Project[] = [
     liveUrl: "https://speak-legal.vercel.app/",
     githubUrl: "https://github.com/Solez-ai/SpeakLegal",
   },
+  {
+    icon: MessageSquare,
+    tag: "Real-Time Chat App",
+    title: "Dark Chat",
+    description:
+      "A real-time chatting application built with Encore.ts leveraging bidirectional streaming for instant message delivery. Dark Chat uses Encore.ts's built-in streaming API to create persistent connections between clients and server, enabling real-time message broadcasting without external dependencies like WebSocket libraries or message queues.",
+    features: [
+      "⚡ Bidirectional Streaming — Persistent type-safe connections using Encore.ts streaming API",
+      "📡 Real-Time Broadcasting — Messages instantly broadcast to all connected clients",
+      "🎨 Color-Coded Users — Random color assignment for easy user identification",
+      "🔒 Type-Safe Communication — Fully typed message streams using TypeScript interfaces",
+      "📱 Responsive Design — Seamless experience on desktop, tablet, and mobile",
+      "🔄 Auto-Scroll — Chat window automatically scrolls to newest messages",
+      "📊 Connection Status — Real-time monitoring with visual indicators",
+      "🚀 No External Dependencies — Real-time functionality built directly into Encore.ts",
+    ],
+    tech: ["Encore.ts", "React", "TypeScript", "Vite", "Tailwind CSS v4", "Lucide React"],
+    liveUrl: "https://dark-chat-now.vercel.app/",
+    githubUrl: "",
+  },
 ];
 
 const ProjectCard = ({
@@ -71,11 +92,11 @@ const ProjectCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="group relative border border-white/10 bg-[rgba(0,0,0,0.4)] rounded-xl overflow-hidden transition-all duration-300 hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] hover:scale-[1.02] active:scale-[1.01] active:border-green-500/20 md:active:scale-100" style={{ transform: 'perspective(1000px) rotateX(0deg)', transformStyle: 'preserve-3d', WebkitTapHighlightColor: 'transparent' }}>
+    <div className="group relative border border-white/10 bg-[rgba(0,0,0,0.4)] rounded-xl overflow-hidden transition-all duration-300 hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] hover:scale-[1.02]" style={{ transform: 'perspective(1000px) rotateX(0deg)', transformStyle: 'preserve-3d' }}>
       <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 bg-[linear-gradient(135deg,transparent,rgba(34,197,94,0.3),transparent)]"></div>
       <div className="relative h-full p-6 flex flex-col z-10">
         <div className="flex items-start justify-between mb-4">
-          <div className="p-3 rounded-lg bg-white/5 text-white group-hover:text-green-400 group-active:text-green-400 transition-colors group-hover:scale-110 group-active:scale-110 duration-300">
+          <div className="p-3 rounded-lg bg-white/5 text-white group-hover:text-green-400 transition-colors group-hover:scale-110 duration-300">
             <Icon className="w-6 h-6" />
           </div>
           <span className="text-xs font-mono text-muted-foreground border border-white/10 px-2 py-1 rounded bg-black/50">
@@ -129,15 +150,17 @@ const ProjectCard = ({
               <ExternalLink className="w-3 h-3" />
               Live Demo
             </a>
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 px-3 py-2 rounded transition-all text-xs font-medium text-white/70 hover:text-white"
-            >
-              <Github className="w-3 h-3" />
-              GitHub
-            </a>
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 px-3 py-2 rounded transition-all text-xs font-medium text-white/70 hover:text-white"
+              >
+                <Github className="w-3 h-3" />
+                GitHub
+              </a>
+            )}
           </div>
 
           <button
@@ -167,7 +190,7 @@ const PortfolioProjects = () => {
           and innovative solutions
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
