@@ -7,6 +7,7 @@ import {
   Github,
   Sparkles,
   MessageSquare,
+  FileText,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -76,6 +77,26 @@ const projects: Project[] = [
     tech: ["Encore.ts", "React", "TypeScript", "Vite", "Tailwind CSS v4", "Lucide React"],
     liveUrl: "https://dark-chat-now.vercel.app/",
     githubUrl: "",
+  },
+  {
+    icon: FileText,
+    tag: "Invoice Generator",
+    title: "Paper Trail",
+    description:
+      "PaperTrail is a powerful, privacy-first invoice generator that runs entirely in your browser. All your data stays local—no server required, no data transmitted, complete control. Create professional invoices with beautiful templates, manage clients, track payments, and export to PDF with ease.",
+    features: [
+      "📄 Invoice Management — Create, edit, delete with auto-save and duplication",
+      "👥 Client Management — Save client info and auto-populate in invoices",
+      "🎨 Professional Templates — Three beautiful templates: Minimal, Professional, Modern",
+      "💰 Flexible Line Items — Unlimited items with percentage/fixed discounts",
+      "⚙️ Customization — Custom branding, multiple currencies, payment terms",
+      "🔒 Complete Privacy — Runs entirely in browser with LocalStorage persistence",
+      "📊 Smart Features — Advanced search, filtering, sorting by date/amount/status",
+      "📱 Responsive Design — Optimized for desktop and mobile with dark/light themes",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Hook Form", "Zod", "Radix UI"],
+    liveUrl: "https://make-invoice.vercel.app/",
+    githubUrl: "https://github.com/Solez-ai/PaperTrail",
   },
 ];
 
