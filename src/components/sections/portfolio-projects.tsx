@@ -8,6 +8,7 @@ import {
   Sparkles,
   MessageSquare,
   FileText,
+  Download,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -97,6 +98,26 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Hook Form", "Zod", "Radix UI"],
     liveUrl: "https://make-invoice.vercel.app/",
     githubUrl: "https://github.com/Solez-ai/PaperTrail",
+  },
+  {
+    icon: Download,
+    tag: "REST API",
+    title: "web-dlp API",
+    description:
+      "web-dlp API is a production-grade REST API for downloading YouTube videos and extracting audio, built with FastAPI and yt-dlp. It features an asynchronous job queue system, real-time progress tracking, and automatic resource management, deployed on Railway with Docker containerization.",
+    features: [
+      "🌐 RESTful Architecture — Clean FastAPI with OpenAPI/Swagger docs and custom interactive documentation",
+      "⚙️ Async Job Processing — Thread-based queue with status tracking and progress updates",
+      "📊 Real-time Monitoring — Polling-based status endpoint with live download progress (0-100%)",
+      "🧹 Auto Resource Cleanup — Background thread purging expired downloads every 5 minutes",
+      "🎵 Format Flexibility — MP3 (audio) and MP4 (video) downloads with quality optimization",
+      "🛡️ Rate Limiting — IP-based throttling (5 req/min) to prevent abuse",
+      "🐳 Docker Containerization — Multi-stage Dockerfile with FFmpeg integration",
+      "🔄 Production Deployment — Automated CI/CD with Railway, health checks, and error handling",
+    ],
+    tech: ["FastAPI", "yt-dlp", "Docker", "Railway", "Python", "FFmpeg"],
+    liveUrl: "https://web-dlp-api-production.up.railway.app/static/example.html",
+    githubUrl: "https://github.com/Solez-ai/web-dlp-api",
   },
 ];
 
