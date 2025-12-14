@@ -9,6 +9,7 @@ import {
   MessageSquare,
   FileText,
   Download,
+  BarChart3,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -118,6 +119,26 @@ const projects: Project[] = [
     tech: ["FastAPI", "yt-dlp", "Docker", "Railway", "Python", "FFmpeg"],
     liveUrl: "https://web-dlp-api-production.up.railway.app/static/example.html",
     githubUrl: "https://github.com/Solez-ai/web-dlp-api",
+  },
+  {
+    icon: BarChart3,
+    tag: "AI Data Visualization",
+    title: "EasyGraph",
+    description:
+      "EasyGraph is an AI-powered data visualization platform that transforms complex chart creation into an intuitive workflow. Using Google's Gemini AI, it generates publication-ready charts from natural language, file uploads, or visual style transfer—reducing chart creation time from minutes to seconds while maintaining professional quality.",
+    features: [
+      "🗣️ Natural Language Input — Describe charts conversationally, AI handles the configuration",
+      "📁 Multi-Modal Data Import — CSV/TXT upload with intelligent delimiter and type detection",
+      "🎨 Visual Style Transfer — Upload reference images to replicate chart aesthetics automatically",
+      "🤖 Smart Chart Selection — AI recommends optimal visualization based on data characteristics",
+      "💬 Context-Aware Iteration — Refine charts through conversational feedback without re-uploading",
+      "📊 Professional Rendering — Chart.js-powered with responsive design and dark mode support",
+      "💾 Project Management — Multiple projects with auto-save and localStorage persistence",
+      "📤 High-Quality Export — PNG/JPEG export with configurable backgrounds for presentations",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Chart.js", "Gemini AI", "Tailwind CSS"],
+    liveUrl: "https://make-graph-easily.vercel.app/",
+    githubUrl: "https://github.com/Solez-ai/easy-graph-v1",
   },
 ];
 
