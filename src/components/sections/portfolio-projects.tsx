@@ -10,6 +10,7 @@ import {
   FileText,
   Download,
   BarChart3,
+  PenTool,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -139,6 +140,26 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Vite", "Chart.js", "Gemini AI", "Tailwind CSS"],
     liveUrl: "https://make-graph-easily.vercel.app/",
     githubUrl: "https://github.com/Solez-ai/easy-graph-v1",
+  },
+  {
+    icon: PenTool,
+    tag: "Visual Programming",
+    title: "PySketch",
+    description:
+      "PySketch is a cutting-edge visual programming platform that revolutionizes how users interact with Python's Turtle graphics. By seamlessly transforming freehand sketches into clean, executable Python code, it empowers both artists and creative coders to prototype, learn, and create generative art without writing a single line of syntax manually.",
+    features: [
+      "🎨 Real-time Code Compilation — Instant conversion of vector strokes to optimized Python turtle scripts",
+      "✏️ Intelligent Smoothing — Smart algorithms to reduce point noise and ensure clean output",
+      "📑 Layer-Based Architecture — Full support for multiple layers, visibility toggling, and z-index",
+      "💻 Integrated Code Inspector — Live code panel with custom syntax highlighting",
+      "💾 State Persistence — Robust localStorage implementation for auto-saving projects",
+      "🎬 Configurable Runtime — Adjustable global animation speeds and canvas settings",
+      "📥 One-Click Export — Generates standalone .py files ready for any local environment",
+      "✨ Premium UI — Dark-mode aesthetic with Tailwind CSS and glassmorphism",
+    ],
+    tech: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"],
+    liveUrl: "https://py-sketch.vercel.app",
+    githubUrl: "https://github.com/Solez-ai/PySketch",
   },
 ];
 
