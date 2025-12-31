@@ -11,6 +11,8 @@ import {
   Download,
   BarChart3,
   PenTool,
+  ChevronDown,
+  AlertCircle,
 } from "lucide-react";
 import React, { useState } from "react";
 
@@ -23,84 +25,10 @@ type Project = {
   tech: string[];
   liveUrl: string;
   githubUrl: string;
+  underMaintenance?: boolean;
 };
 
-const projects: Project[] = [
-  {
-    icon: Upload,
-    tag: "File Sharing App",
-    title: "Send It",
-    description:
-      "SendIT was created to solve a common problem in modern file sharing. Many existing platforms require users to sign up, verify email addresses, install applications, or deal with restrictive limits on file size and transfer speed. SendIT removes this friction completely.",
-    features: [
-      "⚡ Instant Sharing — Upload and share files with a short one-time code",
-      "📦 Up to 10GB — Large transfers made easy",
-      "🔐 Optional Protection — Password-protected transfers",
-      "⏱ Auto-Cleanup — Temporary storage with expiry",
-      "📱 PWA-Ready — Installable on desktop and mobile",
-    ],
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase", "PWA"],
-    liveUrl: "https://sendit-now.vercel.app/",
-    githubUrl: "https://github.com/Solez-ai/sendit",
-  },
-  {
-    icon: Scale,
-    tag: "AI-Powered Platform",
-    title: "Speak Legal",
-    description:
-      "SpeakLegal is an AI-powered platform designed to make legal documents simple and accessible for everyone. Legal language is often dense, complex, and difficult to understand, creating barriers for individuals, small businesses, and students. SpeakLegal leverages Google Gemini AI to parse, analyze, and simplify legal documents.",
-    features: [
-      "📄 Dual-Pane Viewer — Original text alongside simplified explanations",
-      "🔍 Clause Breakdown — Each clause analyzed and tagged for risk level",
-      "📊 Executive Summaries — AI generates concise document summaries",
-      "💬 Context-Aware Chatbot — Ask questions about the document",
-      "🔑 Custom API Support — Use your own Gemini API key",
-      "💾 User Dashboard — Save and manage analyzed documents",
-    ],
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase", "Gemini AI"],
-    liveUrl: "https://speak-legal.vercel.app/",
-    githubUrl: "https://github.com/Solez-ai/SpeakLegal",
-  },
-  {
-    icon: MessageSquare,
-    tag: "Real-Time Chat App",
-    title: "Dark Chat",
-    description:
-      "A real-time chatting application built with Encore.ts leveraging bidirectional streaming for instant message delivery. Dark Chat uses Encore.ts's built-in streaming API to create persistent connections between clients and server, enabling real-time message broadcasting without external dependencies like WebSocket libraries or message queues.",
-    features: [
-      "⚡ Bidirectional Streaming — Persistent type-safe connections using Encore.ts streaming API",
-      "📡 Real-Time Broadcasting — Messages instantly broadcast to all connected clients",
-      "🎨 Color-Coded Users — Random color assignment for easy user identification",
-      "🔒 Type-Safe Communication — Fully typed message streams using TypeScript interfaces",
-      "📱 Responsive Design — Seamless experience on desktop, tablet, and mobile",
-      "🔄 Auto-Scroll — Chat window automatically scrolls to newest messages",
-      "📊 Connection Status — Real-time monitoring with visual indicators",
-      "🚀 No External Dependencies — Real-time functionality built directly into Encore.ts",
-    ],
-    tech: ["Encore.ts", "React", "TypeScript", "Vite", "Tailwind CSS v4", "Lucide React"],
-    liveUrl: "https://dark-chat-now.vercel.app/",
-    githubUrl: "",
-  },
-  {
-    icon: FileText,
-    tag: "Invoice Generator",
-    title: "Paper Trail",
-    description:
-      "PaperTrail is a powerful, privacy-first invoice generator that runs entirely in your browser. All your data stays local—no server required, no data transmitted, complete control. Create professional invoices with beautiful templates, manage clients, track payments, and export to PDF with ease.",
-    features: [
-      "📄 Invoice Management — Create, edit, delete with auto-save and duplication",
-      "👥 Client Management — Save client info and auto-populate in invoices",
-      "🎨 Professional Templates — Three beautiful templates: Minimal, Professional, Modern",
-      "💰 Flexible Line Items — Unlimited items with percentage/fixed discounts",
-      "⚙️ Customization — Custom branding, multiple currencies, payment terms",
-      "🔒 Complete Privacy — Runs entirely in browser with LocalStorage persistence",
-      "📊 Smart Features — Advanced search, filtering, sorting by date/amount/status",
-      "📱 Responsive Design — Optimized for desktop and mobile with dark/light themes",
-    ],
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Hook Form", "Zod", "Radix UI"],
-    liveUrl: "https://make-invoice.vercel.app/",
-    githubUrl: "https://github.com/Solez-ai/PaperTrail",
-  },
+const featuredProjects: Project[] = [
   {
     icon: Download,
     tag: "REST API",
@@ -163,6 +91,86 @@ const projects: Project[] = [
   },
 ];
 
+const otherProjects: Project[] = [
+  {
+    icon: MessageSquare,
+    tag: "Real-Time Chat App",
+    title: "Dark Chat",
+    description:
+      "A real-time chatting application built with Encore.ts leveraging bidirectional streaming for instant message delivery. Dark Chat uses Encore.ts's built-in streaming API to create persistent connections between clients and server, enabling real-time message broadcasting without external dependencies like WebSocket libraries or message queues.",
+    features: [
+      "⚡ Bidirectional Streaming — Persistent type-safe connections using Encore.ts streaming API",
+      "📡 Real-Time Broadcasting — Messages instantly broadcast to all connected clients",
+      "🎨 Color-Coded Users — Random color assignment for easy user identification",
+      "🔒 Type-Safe Communication — Fully typed message streams using TypeScript interfaces",
+      "📱 Responsive Design — Seamless experience on desktop, tablet, and mobile",
+      "🔄 Auto-Scroll — Chat window automatically scrolls to newest messages",
+      "📊 Connection Status — Real-time monitoring with visual indicators",
+      "🚀 No External Dependencies — Real-time functionality built directly into Encore.ts",
+    ],
+    tech: ["Encore.ts", "React", "TypeScript", "Vite", "Tailwind CSS v4", "Lucide React"],
+    liveUrl: "https://dark-chat-now.vercel.app/",
+    githubUrl: "",
+  },
+  {
+    icon: FileText,
+    tag: "Invoice Generator",
+    title: "Paper Trail",
+    description:
+      "PaperTrail is a powerful, privacy-first invoice generator that runs entirely in your browser. All your data stays local—no server required, no data transmitted, complete control. Create professional invoices with beautiful templates, manage clients, track payments, and export to PDF with ease.",
+    features: [
+      "📄 Invoice Management — Create, edit, delete with auto-save and duplication",
+      "👥 Client Management — Save client info and auto-populate in invoices",
+      "🎨 Professional Templates — Three beautiful templates: Minimal, Professional, Modern",
+      "💰 Flexible Line Items — Unlimited items with percentage/fixed discounts",
+      "⚙️ Customization — Custom branding, multiple currencies, payment terms",
+      "🔒 Complete Privacy — Runs entirely in browser with LocalStorage persistence",
+      "📊 Smart Features — Advanced search, filtering, sorting by date/amount/status",
+      "📱 Responsive Design — Optimized for desktop and mobile with dark/light themes",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Hook Form", "Zod", "Radix UI"],
+    liveUrl: "https://make-invoice.vercel.app/",
+    githubUrl: "https://github.com/Solez-ai/PaperTrail",
+  },
+  {
+    icon: Upload,
+    tag: "File Sharing App",
+    title: "Send It",
+    description:
+      "SendIT was created to solve a common problem in modern file sharing. Many existing platforms require users to sign up, verify email addresses, install applications, or deal with restrictive limits on file size and transfer speed. SendIT removes this friction completely.",
+    features: [
+      "⚡ Instant Sharing — Upload and share files with a short one-time code",
+      "📦 Up to 10GB — Large transfers made easy",
+      "🔐 Optional Protection — Password-protected transfers",
+      "⏱ Auto-Cleanup — Temporary storage with expiry",
+      "📱 PWA-Ready — Installable on desktop and mobile",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase", "PWA"],
+    liveUrl: "https://sendit-now.vercel.app/",
+    githubUrl: "https://github.com/Solez-ai/sendit",
+    underMaintenance: true,
+  },
+  {
+    icon: Scale,
+    tag: "AI-Powered Platform",
+    title: "Speak Legal",
+    description:
+      "SpeakLegal is an AI-powered platform designed to make legal documents simple and accessible for everyone. Legal language is often dense, complex, and difficult to understand, creating barriers for individuals, small businesses, and students. SpeakLegal leverages Google Gemini AI to parse, analyze, and simplify legal documents.",
+    features: [
+      "📄 Dual-Pane Viewer — Original text alongside simplified explanations",
+      "🔍 Clause Breakdown — Each clause analyzed and tagged for risk level",
+      "📊 Executive Summaries — AI generates concise document summaries",
+      "💬 Context-Aware Chatbot — Ask questions about the document",
+      "🔑 Custom API Support — Use your own Gemini API key",
+      "💾 User Dashboard — Save and manage analyzed documents",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase", "Gemini AI"],
+    liveUrl: "https://speak-legal.vercel.app/",
+    githubUrl: "https://github.com/Solez-ai/SpeakLegal",
+    underMaintenance: true,
+  },
+];
+
 const ProjectCard = ({
   icon: Icon,
   tag,
@@ -172,6 +180,7 @@ const ProjectCard = ({
   tech,
   liveUrl,
   githubUrl,
+  underMaintenance,
 }: Project) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -229,10 +238,16 @@ const ProjectCard = ({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 hover:border-green-500/50 px-3 py-2 rounded transition-all text-xs font-medium text-green-400 hover:text-green-300"
+              className="flex-1 flex items-center justify-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 hover:border-green-500/50 px-3 py-2 rounded transition-all text-xs font-medium text-green-400 hover:text-green-300 relative"
             >
               <ExternalLink className="w-3 h-3" />
               Live Demo
+              {underMaintenance && (
+                <span className="absolute -top-2 -right-2 flex items-center gap-1 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-[9px] px-1.5 py-0.5 rounded-full font-semibold">
+                  <AlertCircle className="w-2.5 h-2.5" />
+                  Maintenance
+                </span>
+              )}
             </a>
             {githubUrl && (
               <a
@@ -260,6 +275,8 @@ const ProjectCard = ({
 };
 
 const PortfolioProjects = () => {
+  const [showOtherProjects, setShowOtherProjects] = useState(false);
+
   return (
     <section className="py-16 md:py-24 px-4 md:px-6 max-w-6xl mx-auto">
       <div className="mb-12 text-left">
@@ -274,11 +291,45 @@ const PortfolioProjects = () => {
           and innovative solutions
         </p>
       </div>
+
+      {/* Featured Projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
+
+      {/* See Other Projects Button */}
+      <div className="mb-6">
+        <button
+          onClick={() => setShowOtherProjects(!showOtherProjects)}
+          className="w-full group relative border border-white/20 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-all duration-300 hover:border-green-500/30"
+        >
+          <div className="flex items-center justify-center gap-2 text-white/70 group-hover:text-green-400 transition-colors">
+            <span className="text-sm font-medium">
+              {showOtherProjects ? "Hide Other Projects" : "See Other Projects"}
+            </span>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-300 ${showOtherProjects ? "rotate-180" : ""
+                }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Other Projects - Collapsible */}
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 transition-all duration-500 ${showOtherProjects
+            ? "opacity-100 max-h-[5000px]"
+            : "opacity-0 max-h-0 overflow-hidden"
+          }`}
+      >
+        {otherProjects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+
+      {/* Coming Soon Section */}
       <div className="group relative border-dashed border-2 border-white/20 bg-transparent rounded-xl flex items-center justify-center p-12 hover:border-green-500/30 transition-all duration-300 hover:bg-green-500/5">
         <div className="text-center">
           <Sparkles className="w-12 h-12 text-green-400/50 mx-auto mb-4 group-hover:text-green-400 transition-colors" />
