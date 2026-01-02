@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useEffect, useRef } from "react";
+import ScrollFloat from "@/components/ui/scroll-float";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -123,12 +124,20 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="space-y-6">
-            <h1 className="font-display text-4xl font-bold leading-[0.9] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              <span className="block font-mono">Web Developer</span>
-              <span className="-mb-4 block bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text pb-4 pr-2 text-transparent">
-                <span className="block text-sm md:text-base lg:text-lg font-sans tracking-normal">Full Stack + Vibe Coder</span>
-              </span>
-            </h1>
+            <ScrollFloat
+              containerClassName="!my-0"
+              textClassName="!font-display !text-4xl !font-bold !leading-[0.9] !tracking-tighter sm:!text-5xl md:!text-6xl lg:!text-7xl xl:!text-8xl"
+              animationDuration={1.5}
+              ease="back.inOut(2)"
+              scrollStart="top bottom"
+              scrollEnd="center center+=30%"
+              stagger={0.03}
+            >
+              Web Developer
+            </ScrollFloat>
+            <span className="-mb-4 block bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text pb-4 pr-2 text-transparent">
+              <span className="block text-sm md:text-base lg:text-lg font-sans tracking-normal">Full Stack + Vibe Coder</span>
+            </span>
 
             <div className="relative">
               <div className="absolute -inset-4 rounded-lg bg-cyan-500/5 opacity-50 blur-2xl"></div>
@@ -140,9 +149,17 @@ export default function HeroSection() {
                     <Sparkles className="h-5 w-5 animate-pulse text-cyan-400" />
                   </div>
                   <div className="space-y-2 text-left">
-                    <h2 className="text-xl font-bold leading-tight text-white md:text-2xl">
+                    <ScrollFloat
+                      containerClassName="!my-0"
+                      textClassName="!text-xl md:!text-2xl font-bold !leading-tight text-white"
+                      animationDuration={1}
+                      ease="back.inOut(1.5)"
+                      scrollStart="top bottom-=10%"
+                      scrollEnd="center center"
+                      stagger={0.02}
+                    >
                       Building Amazing Sites
-                    </h2>
+                    </ScrollFloat>
                     <p className="text-sm font-medium leading-relaxed text-white/70 md:text-base">
                       I'm a passionate and curious developer who brings a unique blend of creativity and technical skill to every project I touch. From building slick front-end interfaces to experimenting with emerging tech, I'm always chasing new ideas and better ways to solve problems. Whether I'm coding solo or collaborating with a team, I believe great work comes from{" "}
                       <span className="text-cyan-300">

@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ScrollFloat from "@/components/ui/scroll-float";
 
 interface ProcessStep {
   number: string;
@@ -63,12 +64,17 @@ const WorkflowProcess = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">
-              How I Work
-            </span>
-            <span className="inline-block w-3 h-8 bg-green-500 ml-2 align-middle animate-pulse"></span>
-          </h2>
+          <ScrollFloat
+            containerClassName="!my-0 mb-4"
+            textClassName="!text-3xl md:!text-4xl font-display font-bold !leading-tight"
+            animationDuration={1.2}
+            ease="back.inOut(1.5)"
+            scrollStart="top bottom-=20%"
+            scrollEnd="center center"
+            stagger={0.02}
+          >
+            How I Work
+          </ScrollFloat>
           <p className="text-muted-foreground max-w-2xl mx-auto text-white/70">
             A systematic approach to building exceptional web applications
           </p>

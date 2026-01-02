@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Code2, Sparkles, Layers, LucideProps } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import ScrollFloat from "@/components/ui/scroll-float";
 
 type Edge = {
   icon: React.ComponentType<LucideProps>;
@@ -171,12 +172,20 @@ const TechStackSection = () => {
         }}></div>
 
         <div className="relative z-10">
-          <h3 className="text-3xl font-bold text-white mb-8 text-center flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3 mb-8">
             <Layers className="w-8 h-8 text-green-400 animate-pulse" />
-            <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
+            <ScrollFloat
+              containerClassName="!my-0"
+              textClassName="!text-3xl font-bold bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent !leading-tight"
+              animationDuration={1.2}
+              ease="back.inOut(1.5)"
+              scrollStart="top bottom-=20%"
+              scrollEnd="center center"
+              stagger={0.02}
+            >
               Technology Stack
-            </span>
-          </h3>
+            </ScrollFloat>
+          </div>
 
           <div className="space-y-10">
             {techCategories.map((category, idx) => (
@@ -268,9 +277,17 @@ const TechStackSection = () => {
 export default function CompetitiveEdge() {
   return (
     <section className="py-16 md:py-24 px-4 md:px-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center text-white">
+      <ScrollFloat
+        containerClassName="!my-0 mb-12"
+        textClassName="!text-3xl md:!text-4xl font-display font-bold text-center text-white !leading-tight"
+        animationDuration={1.2}
+        ease="back.inOut(1.5)"
+        scrollStart="top bottom-=20%"
+        scrollEnd="center center"
+        stagger={0.02}
+      >
         My Skills
-      </h2>
+      </ScrollFloat>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {edgeData.map((edge) => (
           <EdgeCard key={edge.title} edge={edge} />

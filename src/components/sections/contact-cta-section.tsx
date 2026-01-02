@@ -2,6 +2,7 @@
 
 import { ArrowRight, Github, Mail, MessageSquare, Twitter } from 'lucide-react';
 import React from 'react';
+import ScrollFloat from '@/components/ui/scroll-float';
 
 const ContactCtaSection = () => {
   return (
@@ -20,9 +21,17 @@ const ContactCtaSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         {/* Get In Touch */}
         <div className="max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+          <ScrollFloat
+            containerClassName="!my-0 mb-4"
+            textClassName="!text-3xl md:!text-4xl font-display font-bold text-white !leading-tight"
+            animationDuration={1.2}
+            ease="back.inOut(1.5)"
+            scrollStart="top bottom-=20%"
+            scrollEnd="center center"
+            stagger={0.02}
+          >
             Let's Build Something Amazing
-          </h2>
+          </ScrollFloat>
           <p className="text-lg text-muted-foreground">
             Looking for a web developer who can bring your ideas to life? Let's connect and discuss your next project.
           </p>
@@ -76,12 +85,17 @@ const ContactCtaSection = () => {
 
         {/* Ready to Collaborate */}
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-7xl lg:text-9xl font-display font-extrabold tracking-tighter leading-none mb-6">
-            <span className="font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/60">
-              READY TO
-            </span>
-            <span className="block text-white">BUILD?</span>
-          </h1>
+          <ScrollFloat
+            containerClassName="!my-0 mb-6"
+            textClassName="!text-7xl lg:!text-9xl font-display font-extrabold tracking-tighter !leading-none font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/60"
+            animationDuration={1.5}
+            ease="back.inOut(2)"
+            scrollStart="top bottom-=10%"
+            scrollEnd="center center+=20%"
+            stagger={0.04}
+          >
+            READY TO BUILD?
+          </ScrollFloat>
           <p className="text-xl md:text-2xl font-medium text-white/80 max-w-3xl mx-auto mb-6">
             From concept to deployment, I'll help you create exceptional web experiences that your users will love.
           </p>

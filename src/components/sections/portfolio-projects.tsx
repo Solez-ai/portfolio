@@ -15,6 +15,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import React, { useState } from "react";
+import ScrollFloat from "@/components/ui/scroll-float";
 
 type Project = {
   icon: React.ElementType;
@@ -280,12 +281,17 @@ const PortfolioProjects = () => {
   return (
     <section className="py-16 md:py-24 px-4 md:px-6 max-w-6xl mx-auto">
       <div className="mb-12 text-left">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">
-            Featured Projects
-          </span>
-          <span className="inline-block w-3 h-8 bg-green-500 ml-2 align-middle animate-pulse"></span>
-        </h2>
+        <ScrollFloat
+          containerClassName="!my-0 mb-4"
+          textClassName="!text-3xl md:!text-4xl font-display font-bold !leading-tight"
+          animationDuration={1.2}
+          ease="back.inOut(1.5)"
+          scrollStart="top bottom-=20%"
+          scrollEnd="center center"
+          stagger={0.02}
+        >
+          Featured Projects
+        </ScrollFloat>
         <p className="text-muted-foreground max-w-2xl mx-0">
           Showcasing real-world applications built with modern web technologies
           and innovative solutions
